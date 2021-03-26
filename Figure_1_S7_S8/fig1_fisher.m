@@ -1,7 +1,7 @@
 %% Add path
 addpath('CircStat/');
 addpath('cbrewer/');
-addpath('Figure_S1_S5/');
+addpath('Figure_1_S7_S8/');
 
 %% Construct prior
 domain = 0 : 0.01 : 2 * pi;
@@ -88,6 +88,12 @@ switch caseId
         
         plot(estimator.ivsStmSpc, mappingValue, 'r', 'LineWidth', 2);
         estimator.estimates = mappingValue;
+    case 6
+        mappingValue = estimator.snsSpc + 0.1 * cos(3 * estimator.snsSpc);
+        
+        hold on;
+        plot(estimator.ivsStmSpc, mappingValue, 'r', 'LineWidth', 2);
+        estimator.estimates = mappingValue;      
 end
 
 axis square;
